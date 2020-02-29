@@ -1,6 +1,6 @@
 new_relic:
   # Find api key from https://rpm.newrelic.com/api/explore/
-  x-api-key: 856bdcf11afa5c8874737283eff9a21095d448e57
+  x-api-key: 12346789axjeuidchtmbheh
 
   # Find the application ID from NewRelic console URL, select individual application
   application_id: "1234567"
@@ -15,5 +15,5 @@ new_relic:
   apdex_alert: enabled
 
   # PagerDuty service HTTP endpoint
-  pagerduty: https://events.pagerduty.com/integration/5f94982374897a7c5a6544d6d/enqueue
+  pagerduty: https://events.pagerduty.com/integration/tot12346789axjeuidchtmbheh/enqueue
 
