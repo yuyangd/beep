@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+cd $(dirname $0)/..
+
+docker run --rm -t \
+  -v ${PWD}/cfg:/cfg \
+  -e BUILDKITE_MESSAGE \
+  -e BUILDKITE_COMMIT \
+  -e BUILDKITE_BUILD_CREATOR_EMAIL \
+  -e BUILDKITE_BUILD_URL \
+  nrops:1 \
+  "$@"
