@@ -1,0 +1,19 @@
+new_relic:
+  # Find api key from https://rpm.newrelic.com/api/explore/
+  x-api-key: 856bdcf11afa5c8874737283eff9a21095d448e57
+
+  # Find the application ID from NewRelic console URL, select individual application
+  application_id: "1234567"
+
+  # Create a deployment marker with revision info
+  deployment_marker: enabled
+
+  # Automatically adjust the apdex_t value
+  apdex_t_controller: enabled
+
+  # Set alert to PagerDuty base on apdex violation 
+  apdex_alert: enabled
+
+  # PagerDuty service HTTP endpoint
+  pagerduty: https://events.pagerduty.com/integration/5f94982374897a7c5a6544d6d/enqueue
+
