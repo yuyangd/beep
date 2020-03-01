@@ -1,5 +1,16 @@
 # nrops
 
+## Features
+
+1. Set deployment marker
+  Deployment marker can appear on APM charts that correlate code changes to the performance of your applications.
+
+1. Manage apdex_t value
+  Automatically set apdex threshold based on the app performance over last 24 hours
+
+1. Manage alert on apdex drop
+  Create the notification channel and alert setting
+
 ## Prerequisite
 
 This binary help integrate the following platforms.
