@@ -10,6 +10,22 @@ This binary help integrate the following platforms.
 
 Run this binary from the Buildkite Pipeline as the last step of production deployment.
 
+## Usage
+
+Create a yaml configure file within the application directory, e.g. cfg/spec.yml
+
+Follow the instruction in the spec.yml to configure.
+
+Copy the auto/nrops into the application directory
+
+Add below command to continuous deployment pipeline.
+
+```bash
+auto/nrops apply -f spec.yml
+```
+
+
+
 ## Build
 
 cd nrops && go build .

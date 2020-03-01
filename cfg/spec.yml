@@ -1,5 +1,6 @@
 new_relic:
   # Find api key from https://rpm.newrelic.com/api/explore/
+  # Must encrypt this key with KMS and use the encrypted string here
   x-api-key: 12346789axjeuidchtmbheh
 
   # Find the application ID from NewRelic console URL, select individual application
