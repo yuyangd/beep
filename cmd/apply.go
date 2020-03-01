@@ -22,6 +22,9 @@ import (
 	"io/ioutil"
 	"log"
 	"nrops"
+	"os"
+
+	"nrops/kms"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -48,7 +51,16 @@ var applyCmd = &cobra.Command{
 
 		nr := viper.GetStringMap("new_relic")
 
-		session = nrops.NewClient(fmt.Sprintf("%v", nr["x-api-key"]))
+		apiKey, err := (&kms.Handler{
+			Service:   kms.Client(os.Getenv("AWS_DEFAULT_REGION")),
+			Context:   nil,
+			CipherKey: fmt.Sprintf("%v", nr["x-api-key"]),
+		}).Decrypt()
+		if err != nil {
+			log.Println(err)
+		}
+
+		session = nrops.NewClient(apiKey)
 		if nr["deployment_marker"].(string) == "enabled" {
 			log.Println("deployment marker enabled")
 			err := session.SetDMarker(fmt.Sprintf("%v", nr["application_id"]), &nrops.DMarker{
