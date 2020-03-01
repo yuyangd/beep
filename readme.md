@@ -38,15 +38,16 @@ Add below command to continuous deployment pipeline.
 auto/nrops apply -f spec.yml
 ```
 
+## Build from local
 
-
-## Build
-
-cd nrops && go build .
+```bash
+auto/build
+```
 
 ## Test from Local
 
 Export buildkite environment variables
+Use AWS KMS to encrypt and decrypt API key
 
 ```bash
 export BUILDKITE_MESSAGE="the code change to dominate the world"
@@ -54,6 +55,11 @@ export BUILDKITE_COMMIT="4818e06abdda93"
 export BUILDKITE_BUILD_CREATOR_EMAIL="john@email.com"
 export BUILDKITE_BUILD_URL="https://thebuildserver/builds/1492"
 
-nrops apply -f spec.yml
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+export AWS_DEFAULT_REGION=""
+
+
+auto/nrops apply -f spec.yml
 ```
 
