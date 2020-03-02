@@ -57,7 +57,7 @@ var applyCmd = &cobra.Command{
 			CipherKey: fmt.Sprintf("%v", nr["x-api-key"]),
 		}).Decrypt()
 		if err != nil {
-			log.Println(err)
+			panic(err)
 		}
 
 		session = nrops.NewClient(apiKey)
