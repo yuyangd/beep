@@ -82,5 +82,5 @@ var applyCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(applyCmd)
 
-	applyCmd.PersistentFlags().StringVarP(&cfgFile, "file", "f", "", "NewRelic config required for application")
+	applyCmd.PersistentFlags().StringVarP(&cfgFile, "file", "f", "", "beep configuration required for application")
 }

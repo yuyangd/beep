@@ -1,0 +1,21 @@
+---
+app:
+  slo: "99.5%"
+  supportHours: 8
+  excludedTransactions:
+    - "/healthcheck"
+    - "/nagios"
+
+conditions:
+  - budgetConsumed: "10%"
+    consumedHours: 6
+  - budgetConsumed: "5%"
+    consumedHours: 4
+  - budgetConsumed: "2%"
+    consumedHours: 1
+
+keyTransactions:
+  - name: "/payment"
+    policies:
+      - errRateAbove: "0%"
+        inMins: 10

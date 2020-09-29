@@ -2,17 +2,20 @@
 
 ## Features
 
+1. Set alert conditions
+
+  Calculate the alert conditions base on Service Level Objectives (SLOs) and support hours
+  This alerting strategy respect the error budget
+
+1. Set alert conditions for zero-tolerance transactions
+
+  This alerting strategy raise alerts for every single error
+
+1. Provision the notification channel
+
 1. Set deployment marker
 
   Deployment marker can appear on APM charts that correlate code changes to the performance of your applications.
-
-2. Manage apdex_t value
-
-  Automatically set apdex threshold based on the app performance over last 24 hours
-
-3. Manage alert on apdex drop
-
-  Create the notification channel and alert setting
 
 ## Prerequisite
 
