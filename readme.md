@@ -1,4 +1,4 @@
-# nrops
+# Beep
 
 ## Features
 
@@ -30,12 +30,12 @@ Create a yaml configure file within the application directory, e.g. cfg/spec.yml
 
 Follow the instruction in the spec.yml to configure.
 
-Copy the auto/nrops into the application directory
+Copy the auto/beep into the application directory
 
 Add below command to continuous deployment pipeline.
 
 ```bash
-auto/nrops apply -f spec.yml
+auto/beep apply -f spec.yml
 ```
 
 ## Build from local
@@ -60,6 +60,6 @@ export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION=""
 
 
-auto/nrops apply -f spec.yml
+auto/beep apply -f spec.yml
 ```
 

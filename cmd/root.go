@@ -16,8 +16,8 @@ limitations under the License.
 package cmd
 
 import (
+	"beep"
 	"fmt"
-	"nrops"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -25,11 +25,11 @@ import (
 )
 
 var cfgFile string
-var session *nrops.Client
+var session *beep.Client
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "nrops",
+	Use:   "beep",
 	Short: "Opinionated configuration for NewRelic",
 }
 

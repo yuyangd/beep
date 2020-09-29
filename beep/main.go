@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "nrops/cmd"
+import "beep/cmd"
 
 func main() {
 	cmd.Execute()

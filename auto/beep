@@ -12,5 +12,5 @@ docker run --rm -t \
   -e AWS_SECRET_ACCESS_KEY \
   -e AWS_SECURITY_TOKEN \
   -e AWS_DEFAULT_REGION \
-  nrops:1 \
+  beep:1 \
   "$@"

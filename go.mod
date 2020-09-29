@@ -1,4 +1,4 @@
-module nrops
+module beep
 
 go 1.14
 

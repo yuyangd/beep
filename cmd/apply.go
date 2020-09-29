@@ -16,15 +16,15 @@ limitations under the License.
 package cmd
 
 import (
+	"beep"
 	"bytes"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
-	"nrops"
 	"os"
 
-	"nrops/kms"
+	"beep/kms"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -35,7 +35,7 @@ var applyCmd = &cobra.Command{
 	Use:   "apply",
 	Short: "Apply the specification to NewRelic",
 	Long: `For example:
-		nrops apply -f spec.yml
+		beep apply -f spec.yml
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if cfgFile == "" {
@@ -60,11 +60,11 @@ var applyCmd = &cobra.Command{
 			panic(err)
 		}
 
-		session = nrops.NewClient(apiKey)
+		session = beep.NewClient(apiKey)
 		if nr["deployment_marker"].(string) == "enabled" {
 			log.Println("deployment marker enabled")
-			err := session.SetDMarker(fmt.Sprintf("%v", nr["application_id"]), &nrops.DMarker{
-				Deployment: nrops.Deploy{
+			err := session.SetDMarker(fmt.Sprintf("%v", nr["application_id"]), &beep.DMarker{
+				Deployment: beep.Deploy{
 					User:        fmt.Sprintf("%v", viper.Get("BUILD_CREATOR_EMAIL")),
 					Description: fmt.Sprintf("%v", viper.Get("BUILD_URL")),
 					Changelog:   fmt.Sprintf("%v", viper.Get("MESSAGE")),
