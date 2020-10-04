@@ -50,7 +50,7 @@ var tryCmd = &cobra.Command{
 		if err != nil {
 			log.Printf("unable to decode into struct, %v", err)
 		}
-		p.Rate()
+		p.AlertCfg()
 
 	},
 }

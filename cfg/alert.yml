@@ -2,6 +2,7 @@
 app:
   slo: "99.5%"
   supportHours: 8
+  interval: 30 # monthly
   excludedTransactions:
     - "/healthcheck"
     - "/nagios"
