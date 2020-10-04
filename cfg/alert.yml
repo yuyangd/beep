@@ -1,14 +1,14 @@
 ---
 app:
-  slo: "99.5%"
-  supportHours: 8
+  slo: "99.5%" # usually defined by product managers
+  supportHours: 8 # base on user activities or support engineer's working hours
   interval: 30 # monthly
   excludedTransactions:
     - "/healthcheck"
     - "/nagios"
 
-conditions:
-  - budgetConsumed: "10%"
+conditions: # the significant portion of error budget burn that worth notifying pager
+  - budgetConsumed: "10%" #10% of monthly error budget consumed in 6 business hours
     consumedHours: 6
   - budgetConsumed: "5%"
     consumedHours: 4
