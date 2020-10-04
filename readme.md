@@ -11,34 +11,34 @@
 
   This alerting strategy raise alerts for every single error
 
-1. Provision the notification channel
-
-1. Set deployment marker
-
-  Deployment marker can appear on APM charts that correlate code changes to the performance of your applications.
-
-## Prerequisite
-
-This binary help integrate the following platforms.
-
-- NewRelic for monitoring and matrix
-- PagerDuty for incident management
-- BuildKite for application deployment
-
-Run this binary from the Buildkite Pipeline as the last step of production deployment.
+1. Provision the alerting configuration on alerting systems
 
 ## Usage
 
-Create a yaml configure file within the application directory, e.g. cfg/spec.yml
-
-Follow the instruction in the spec.yml to configure.
-
-Copy the auto/beep into the application directory
-
-Add below command to continuous deployment pipeline.
+Create a yaml configure file within the application directory, e.g. cfg/alert.yml
 
 ```bash
-auto/beep apply -f spec.yml
+$ go run beep/main.go try -f cfg/alert.yml
+
+# Print out result
+
+# 10% of Error Budget consumed in 6 support hours
+# Error Budget Burn Rate: 3
+# Error Rate > 1.50% in 6 hours, 
+# Health Check failure > 5.40 mins in 6 hours, 
+# Full Outage TTD: 5.40 mins
+
+# 5% of Error Budget consumed in 4 support hours
+# Error Budget Burn Rate: 3
+# Error Rate > 1.50% in 4 hours, 
+# Health Check failure > 3.60 mins in 4 hours, 
+# Full Outage TTD: 3.60 mins
+
+# 2% of Error Budget consumed in 1 support hours
+# Error Budget Burn Rate: 4.8
+# Error Rate > 2.40% in 1 hours, 
+# Health Check failure > 1.44 mins in 1 hours, 
+# Full Outage TTD: 1.44 mins
 ```
 
 ## Build from local
@@ -46,23 +46,3 @@ auto/beep apply -f spec.yml
 ```bash
 auto/build
 ```
-
-## Test from Local
-
-Export buildkite environment variables
-Use AWS KMS to encrypt and decrypt API key
-
-```bash
-export BUILDKITE_MESSAGE="the code change to dominate the world"
-export BUILDKITE_COMMIT="4818e06abdda93"
-export BUILDKITE_BUILD_CREATOR_EMAIL="john@email.com"
-export BUILDKITE_BUILD_URL="https://thebuildserver/builds/1492"
-
-export AWS_ACCESS_KEY_ID=""
-export AWS_SECRET_ACCESS_KEY=""
-export AWS_DEFAULT_REGION=""
-
-
-auto/beep apply -f spec.yml
-```
-
