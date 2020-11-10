@@ -1,7 +1,7 @@
 ---
 app:
-  slo: "99.5%" # usually defined by product managers
-  supportHours: 8 # base on user activities or support engineer's working hours
+  slo: "99.9%" # usually defined by product managers
+  supportHours: 24 # base on user activities or support engineer's working hours
   interval: 30 # monthly
   excludedTransactions:
     - "/healthcheck"

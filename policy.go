@@ -53,7 +53,7 @@ func (p *Policy) AvailabilityRate(c *Condition) {
 
 	errBudget := &ErrorBudget{
 		budget:   1 - p2f(p.App.Slo),
-		burnRate: p2f(c.BudgetConsumed) * float64(p.App.SupportHours/c.ConsumedHours) * 30,
+		burnRate: p2f(c.BudgetConsumed) * float64(p.App.SupportHours/c.ConsumedHours) * float64(p.App.Interval),
 	}
 
 	errorRate := errBudget.burnRate * errBudget.budget
